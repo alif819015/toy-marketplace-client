@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars , FaCross, FaXbox} from "react-icons/fa";
+import { FaBars , FaXbox} from "react-icons/fa";
 
 const NavTwo = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const NavTwo = () => {
   };
 
   return (
-    <div className="navbar flex justify-between flex-col sm:flex-row">
+        <div className="navbar flex justify-between flex-col sm:flex-row">
       <div>
         <div className="">
           <a className="btn btn-ghost normal-case text-xl">daisyUI</a>

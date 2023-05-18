@@ -1,7 +1,16 @@
+import logo from "../../../public/logo.png";
+import { FaTwitter, FaFacebook, FaYoutube } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <div className="bg-base-200">
       <footer className="footer p-10 bg-base-200 text-base-content">
+        <div>
+          <div className="w-16">
+            <img src={logo} alt="" />
+          </div>
+          <p className="font-bold">SuperToyEmpire</p>
+        </div>
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
@@ -37,6 +46,20 @@ const Footer = () => {
               <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
                 Subscribe
               </button>
+            </div>
+            <div className="mt-6">
+              <span className="footer-title">Social</span>
+              <div className="mt-5 flex gap-4">
+                <a>
+                  <FaTwitter className="text-blue-600 w-8 h-8"></FaTwitter>
+                </a>
+                <a>
+                  <FaFacebook className="text-blue-600 w-8 h-8"></FaFacebook>
+                </a>
+                <a>
+                  <FaYoutube className="text-red-600 w-8 h-8"></FaYoutube>
+                </a>
+              </div>
             </div>
           </div>
         </div>

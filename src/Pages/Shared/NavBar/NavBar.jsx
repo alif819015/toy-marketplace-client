@@ -10,9 +10,6 @@ const NavBar = () => {
       <div className="navbar md:px-8 bg-[#c22f63]">
         <NavTwo></NavTwo>
       </div>
-      <div className="navbar md:px-8 bg-[#b92d5e]">
-
-      </div>
     </div>
   );
 };
