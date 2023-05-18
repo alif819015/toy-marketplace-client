@@ -3,7 +3,7 @@ import NavTwo from "./NavTwo";
 
 const NavBar = () => {
   return (
-    <div>
+    <div className="text-white">
       <div className="navbar md:px-8 bg-[#b92d5e]">
         <NavOne></NavOne>
       </div>

@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
       </footer>
       <div className="footer footer-center p-4 text-base-content">
-        <p>Copyright © 2023 - All right reserved by Action figure toys</p>
+        <p>Copyright © 2023 - All right reserved by SuperToyEmpire</p>
       </div>
     </div>
   );

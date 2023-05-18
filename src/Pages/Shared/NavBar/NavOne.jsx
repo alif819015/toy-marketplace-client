@@ -1,11 +1,16 @@
+import logo from '../../../../public/logo.png';
+
 const NavOne = () => {
   return (
-    <div className="navbar">
+    <div className="navbar flex-col sm:flex-row">
+      <div className="w-20">
+          <img src={logo} alt="" />
+        </div>
     <div className="">
-      <a className="btn btn-ghost font-thin text-white text-2xl">Action figure toys</a>
+      <a className="btn btn-ghost font-thin text-white text-2xl">SuperToyEmpire</a>
     </div>
     <div className="flex-1 justify-between gap-2">
-      <div className="form-control">
+      <div className="form-control text-black">
         <input type="text" placeholder="Search" className="input input-bordered" />
       </div>
       <div className="dropdown dropdown-end">
