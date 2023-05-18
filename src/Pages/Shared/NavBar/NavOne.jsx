@@ -2,7 +2,7 @@ const NavOne = () => {
   return (
     <div className="navbar">
     <div className="">
-      <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+      <a className="btn btn-ghost font-thin text-white text-2xl">Action figure toys</a>
     </div>
     <div className="flex-1 justify-between gap-2">
       <div className="form-control">

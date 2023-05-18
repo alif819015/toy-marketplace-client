@@ -4,14 +4,14 @@ import NavTwo from "./NavTwo";
 const NavBar = () => {
   return (
     <div>
-      <div className="navbar bg-[#b92d5e]">
+      <div className="navbar md:px-8 bg-[#b92d5e]">
         <NavOne></NavOne>
       </div>
-      <div className="navbar bg-[#e83e8c]">
+      <div className="navbar md:px-8 bg-[#c22f63]">
         <NavTwo></NavTwo>
       </div>
-      <div>
-        
+      <div className="navbar md:px-8 bg-[#b92d5e]">
+
       </div>
     </div>
   );
