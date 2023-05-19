@@ -5,11 +5,20 @@ const AddToy = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    fetch("http://localhost:5000/postToys", {
+      method: "POST",
+      headers: {"content-type": "application/json"},
+      body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+    .then(result => {
+      console.log(result);
+    })
     console.log(data);
+
   };
 
   return (
@@ -67,10 +76,10 @@ const AddToy = () => {
                         </select>
                       </div>
                       <div className=" ml-1 text-option">
-                        <select {...register("size")}>
-                          <option value="s">S</option>
-                          <option value="m">M</option>
-                          <option value="l">L</option>
+                        <select {...register("color")}>
+                          <option value="red">Red</option>
+                          <option value="black">Black</option>
+                          <option value="white">White</option>
                         </select>
                       </div>
                       <div className=" ml-1 text-option">
