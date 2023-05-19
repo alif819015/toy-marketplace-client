@@ -26,6 +26,12 @@ const logOut = () =>{
     return signOut(auth);
 }
 
+// const userProfile = () =>{
+//     return updateProfile(auth.currentUser,{
+//         displayName: user,
+//     })
+// }
+
 const google = () =>{
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
@@ -47,7 +53,7 @@ useEffect(()=>{
         loading,
         login,
         logOut,
-        google
+        google,
 
 
     };

@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import { Form, Link } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, google} = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -13,7 +14,8 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
 
     setSuccess("");
     setError("");
@@ -29,10 +31,35 @@ const Register = () => {
         console.log(loggedUser);
         setSuccess("User Has ben created success fully");
         event.target.reset();
+        userProfile(result.user, name, photo);
       })
       .catch((error) => {
         setError(error.message);
       });
+  };
+
+  const userProfile = (user, name, photo) =>{
+    updateProfile(user,{
+        displayName: name,
+        photoURL: photo,
+    })
+    .then(()=>{
+        console.log('user name updated')
+    })
+    .catch(error=>{
+        setError(error.message);
+    })
+}
+
+  const handleGoogle = () => {
+    google()
+    .then(result =>{
+        const googleUser = result.user;
+        console.log(googleUser);
+    })
+    .catch(error=>{
+        console.error(error.message);
+    })
   };
 
   return (
@@ -80,6 +107,19 @@ const Register = () => {
               />
               <label className="label"></label>
             </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo</span>
+              </label>
+              <input
+                type="text"
+                placeholder="URL"
+                className="input input-bordered"
+                name="photo"
+                required
+              />
+              <label className="label"></label>
+            </div>
             <a className="text-green-500 text-center">
               <p>{success}</p>
             </a>
@@ -95,6 +135,16 @@ const Register = () => {
                 <span className="text-green-600">Login</span>
               </Link>
             </a>
+
+            <div className="divider">OR</div>
+            <div className="flex justify-center gap-4">
+              <button onClick={handleGoogle} className="btn btn-circle btn-outline font-bold text-purple-600">
+                G
+              </button>
+              <button className="btn btn-circle btn-outline font-bold text-purple-600">
+                Git
+              </button>
+            </div>
           </Form>
         </div>
       </div>
