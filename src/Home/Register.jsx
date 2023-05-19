@@ -7,7 +7,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleLogin = (event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -42,7 +42,7 @@ const Register = () => {
           <h1 className="text-5xl font-bold">Please Register</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <Form onSubmit={handleLogin} className="card-body">
+          <Form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>

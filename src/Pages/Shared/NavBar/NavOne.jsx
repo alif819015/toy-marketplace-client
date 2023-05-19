@@ -1,7 +1,19 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../../public/logo.png';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Auth/AuthProvider';
 
 const NavOne = () => {
+  const {user, logOut} = useContext(AuthContext);
+
+const handleLogOut = () =>{
+  logOut()
+  .then(()=>{})
+  .catch(error=>{
+    console.error(error);
+  })
+}
+
   return (
     <div className="navbar flex-col sm:flex-row">
       <div className="w-20">
@@ -16,14 +28,20 @@ const NavOne = () => {
       </div>
       <div className='flex items-center gap-3'>
         <div>
-            <Link className='mr-4' to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
+          {user ?
+          <Link to='/' className='mr-3 hover: hover:text-violet-500 focus:ring-violet-300'><button onClick={handleLogOut}>Logout</button></Link>:
+            <>
+            <Link className='mr-4 hover:text-violet-500 focus:ring-violet-300' to='/login'><button>Login</button></Link>
+            <Link to='/register'><button className='hover:text-violet-500 focus:ring-violet-300'>Register</button></Link>
+            </>
+            }
         </div>
         <div>
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          {user &&
           <div className="w-10 rounded-full">
-            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
+            <img title={user?.displayName} src={user?.photoURL} />
+          </div>}
         </label>
         </div>
       </div>
