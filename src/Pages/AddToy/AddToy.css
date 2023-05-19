@@ -1,0 +1,10 @@
+.text-input{
+    border: 1px solid black;
+    padding: 8px;
+    margin: 5px;
+}
+.text-option{
+    border: 1px solid black;
+    width: fit-content;
+    padding: 5px;
+}

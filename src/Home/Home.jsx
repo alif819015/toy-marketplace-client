@@ -2,12 +2,15 @@ import img1 from "../../public/New folder/img2.jpg";
 import img2 from "../../public/New folder/img4.jpg";
 import img3 from "../../public/New folder/img5.jpg";
 import img4 from "../../public/New folder/img8.jpg";
+import Gallery from "./Gallery";
+import ShopCategory from "./ShopCategory/ShopCategory";
 // import banner from "../../public/banner";
 
 
 const Home = () => {
   return (
-    <div
+    <div>
+      <div
       className="hero min-h-screen"
       style={{
         backgroundImage: `url("https://c4.wallpaperflare.com/wallpaper/332/141/94/marvel-comics-hulk-captain-america-iron-man-wallpaper-preview.jpg")`,
@@ -79,6 +82,13 @@ const Home = () => {
           </div>
         </div>
       </div>
+    </div>
+    <div className="my-10">
+      <Gallery></Gallery>
+    </div>
+    <div className="my-10">
+      <ShopCategory></ShopCategory>
+    </div>
     </div>
   );
 };

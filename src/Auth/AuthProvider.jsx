@@ -39,11 +39,11 @@ const google = () =>{
 
 useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, loggedUser =>{
-        setUser(loggedUser);
         setLoading(false);
+        setUser(loggedUser);
     })
     return ()=>{
-        unsubscribe();
+        return unsubscribe();
     }
 },[])
 

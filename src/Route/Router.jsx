@@ -5,6 +5,7 @@ import NavBer from "../Pages/Shared/NavBar/NavOne";
 import Login from "../Home/Login";
 import Register from "../Home/Register";
 import Blogs from "../Home/Blogs";
+import AddToy from "../Pages/AddToy/AddToy";
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         {
             path: '/blogs',
             element: <Blogs></Blogs>
+        },
+        {
+            path: '/addToy',
+            element: <AddToy></AddToy>
         },
       ]
     },
