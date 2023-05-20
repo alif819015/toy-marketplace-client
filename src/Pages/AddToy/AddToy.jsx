@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
 import "./AddToy.css";
+import { useContext } from "react";
+import { AuthContext } from "../../Auth/AuthProvider";
 
 const AddToy = () => {
+  const {user} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -18,7 +22,13 @@ const AddToy = () => {
       console.log(result);
     })
     console.log(data);
-
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Added Success fully',
+      showConfirmButton: false,
+      timer: 1500
+    })
   };
 
   return (
@@ -41,19 +51,30 @@ const AddToy = () => {
                     />
                     <input
                       className="text-input"
-                      placeholder="name"
-                      {...register("name", { required: true })}
+                      placeholder="seller"
+                      {...register("seller", { required: true })}
                     />
                     <input
                       className="text-input"
-                      placeholder="price"
-                      {...register("price", { required: true })}
+                      placeholder="toyName"
+                      {...register("toyName", { required: true })}
                     />
                     <input
                       className="text-input"
                       placeholder="your email"
                       {...register("email", { required: true })}
                       type="email"
+                      value={user?.email}
+                    />
+                    <input
+                      className="text-input"
+                      placeholder="price"
+                      {...register("price", { required: true })}
+                    />
+                     <input
+                      className="text-input"
+                      placeholder="quantity"
+                      {...register("quantity", { required: true })}
                     />
                     <input
                       className="text-input"
@@ -96,12 +117,6 @@ const AddToy = () => {
                     {errors.exampleRequired && (
                       <span>This field is required</span>
                     )}
-
-                    {/* <input
-                      className="submit-btn"
-                      value="Post Job"
-                      type="submit"
-                    /> */}
                     <div className="form-control mt-6">
                       <input className="btn btn-primary" type="submit" />
                     </div>

@@ -1,5 +1,5 @@
 const ToyList = ({ toy, handleDelete, handleUpdate}) => {
-  const { _id, image, price, date, name, color, retting, category, description, status } =
+  const { _id, image, price, date, seller, retting, status } =
     toy;
 
 
@@ -8,7 +8,7 @@ const ToyList = ({ toy, handleDelete, handleUpdate}) => {
     <tr>
       <th>
         <label>
-          <button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline">
+          <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-circle btn-outline">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -36,7 +36,7 @@ const ToyList = ({ toy, handleDelete, handleUpdate}) => {
         </div>
       </td>
       <td>
-        <div className="font-bold">{name}</div>
+        <div className="font-bold">{seller}</div>
       </td>
       <td>{date}</td>
       <td>{retting}</td>

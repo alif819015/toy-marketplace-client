@@ -19,7 +19,7 @@ const NavOne = () => {
       <div className="w-20">
         <img src={logo} alt="" />
       </div>
-      <div className="">
+      <div>
         <a className="btn btn-ghost font-thin text-white text-2xl">
           SuperToyEmpire
         </a>
@@ -55,11 +55,9 @@ const NavOne = () => {
           <div>
             {user && (
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                (
                 <div className="w-10 rounded-full">
                   <img title={user?.displayName} src={user?.photoURL} />
                 </div>
-                )
               </label>
             )}
           </div>

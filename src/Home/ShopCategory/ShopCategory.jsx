@@ -1,9 +1,18 @@
+import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const ShopCategory = () => {
+    const [categories, setCategories] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/all-categories')
+        .then(res => res.json())
+        .then(data => {
+            setCategories(data);
+        })
+    },[])
   return (
     <div>
-      <h3 className="text-3xl text-center font-bold">Shop by Category</h3>
+      <h3 className="text-3xl text-center font-bold">Shop by Category: {categories.length}</h3>
       <div>
         <Tabs className="p-3 rounded-md mt-4 tex-c mx-auto w-2/3 bg bg-purple-200">
           <TabList className="flex justify-between py-1 px-4 font-semibold gap-8 cos">

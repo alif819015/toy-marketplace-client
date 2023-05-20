@@ -2,7 +2,7 @@ import img1 from "../../public/New folder/img2.jpg";
 import img2 from "../../public/New folder/img4.jpg";
 import img3 from "../../public/New folder/img5.jpg";
 import img4 from "../../public/New folder/img8.jpg";
-import Gallery from "./Gallery";
+import Gallery from "./Gallery/Gallery";
 import ShopCategory from "./ShopCategory/ShopCategory";
 // import banner from "../../public/banner";
 
@@ -20,13 +20,13 @@ const Home = () => {
       <div className="hero-content text-center text-neutral-content">
         <div className="grid md:grid-cols-2">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+            {/* <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
             <p className="mb-5">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary">Get Started</button> */}
           </div>
 
           {/* carousel */}

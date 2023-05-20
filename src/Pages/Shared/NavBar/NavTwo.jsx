@@ -33,7 +33,7 @@ const NavTwo = () => {
             All Toys
           </Link>
         </div>
-        {user &&
+        {user?.email &&
           <div className="">
           <Link to="/myToys" className="btn btn-ghost normal-case text-xl">
             My Toys

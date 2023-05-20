@@ -1,16 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ToyList from "./ToyList";
+import { AuthContext } from "../../Auth/AuthProvider";
 
 const MyToy = () => {
+    const {user} = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/allToys")
-      .then((res) => res.json())
-      .then((data) => {
-        setToys(data);
-      });
-  }, []);
+  const url = `http://localhost:5000/toy-mail?email=${user?.email}`;
+  useEffect(()=>{
+    fetch(url)
+    .then(res =>res.json())
+    .then(data => setToys(data))
+  },[user])
+  console.log(user)
+  
+
+//   useEffect(() => {
+//     fetch("http://localhost:5000/allToys")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setToys(data);
+//       });
+//   }, []);
   const handleDelete = id =>{
     const proceed = confirm('Are you sure you wont to delete');
     if(proceed){
@@ -68,10 +79,10 @@ const handleUpdate = id =>{
                     </label>
                   </th>
                   <th>Image</th>
+                  <th>Name</th>
                   <th>Date</th>
                   <th>Ratting</th>
                   <th>Price</th>
-                  <th>Job</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
