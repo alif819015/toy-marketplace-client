@@ -1,5 +1,5 @@
-const ToyList = ({ toy, handleDelete }) => {
-  const { _id, image, price, date, name, color, retting, category, description } =
+const ToyList = ({ toy, handleDelete, handleUpdate}) => {
+  const { _id, image, price, date, name, color, retting, category, description, status } =
     toy;
 
 
@@ -42,7 +42,10 @@ const ToyList = ({ toy, handleDelete }) => {
       <td>{retting}</td>
       <td>${price}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        {
+            status === 'confirm' ?
+            <span className="font-bold text-purple-600">Confirmed</span>:
+            <button onClick={()=>handleUpdate(_id)} className="btn btn-ghost btn-xs">by Now</button>}
       </th>
     </tr>
   );

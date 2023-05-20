@@ -31,6 +31,26 @@ const MyToy = () => {
     }
 }
 
+const handleUpdate = id =>{
+    fetch(`http://localhost:5000/allToys/${id}`, {
+    method: "PATCH",
+    headers: {"content-type":"application/json"},
+    body: JSON.stringify({status: 'confirm'})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.modifiedCount > 0){
+            // update status
+            const remaining = toys.filter(toy => toy._id !== id);
+            const updated = toys.find(toy => toy._id === id);
+            updated.status = 'confirm'
+            const newToys = [updated, ...remaining];
+            setToys(newToys);
+        }
+    })
+}
+
   console.log(toys);
   return (
     <div>
@@ -52,13 +72,14 @@ const MyToy = () => {
                   <th>Ratting</th>
                   <th>Price</th>
                   <th>Job</th>
-                  <th>Favorite Color</th>
+                  <th>Status</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 {toys?.map((toy) => (
-                  <ToyList key={toy._id} toy={toy} handleDelete={handleDelete}></ToyList>
+                  <ToyList key={toy._id} toy={toy} handleDelete={handleDelete}
+                  handleUpdate={handleUpdate}></ToyList>
                 ))}
               </tbody>
             </table>
