@@ -16,7 +16,7 @@ const Gallery = () => {
         <div>
            <h3 className="text-3xl text-center font-bold">Gallery</h3> 
            <section className="m-10">
-           <div className="grid md:grid-cols-5 gap-8">
+           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {
                 toys.map(toy => <GalleryCard key={toy.id} toy={toy}></GalleryCard>)
             }

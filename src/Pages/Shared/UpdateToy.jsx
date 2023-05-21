@@ -33,7 +33,7 @@ const UpdateToy = () => {
         console.log(result);
       });
     console.log(data);
-    if (data.modifiedCount > 0) {
+   
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -41,7 +41,7 @@ const UpdateToy = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-    }
+    
   };
   return (
     <div>
