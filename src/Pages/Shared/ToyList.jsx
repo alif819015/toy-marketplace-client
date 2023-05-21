@@ -1,14 +1,16 @@
-const ToyList = ({ toy, handleDelete, handleUpdate}) => {
-  const { _id, image, price, date, seller, retting, status } =
-    toy;
+import { Link } from "react-router-dom";
 
-
+const ToyList = ({ toy, handleDelete, handleUpdate }) => {
+  const { _id, image, price, date, seller, retting, status } = toy;
 
   return (
     <tr>
       <th>
         <label>
-          <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-circle btn-outline">
+          <button
+            onClick={() => handleDelete(_id)}
+            className="btn btn-sm btn-circle btn-outline"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -42,10 +44,21 @@ const ToyList = ({ toy, handleDelete, handleUpdate}) => {
       <td>{retting}</td>
       <td>${price}</td>
       <th>
-        {
-            status === 'confirm' ?
-            <span className="font-bold text-purple-600">Confirmed</span>:
-            <button onClick={()=>handleUpdate(_id)} className="btn btn-ghost btn-xs">by Now</button>}
+        <Link to={`/updated/${_id}`}>
+          <button className="btn btn-sm">update</button>
+        </Link>
+      </th>
+      <th>
+        {status === "confirm" ? (
+          <span className="font-bold text-purple-600">Confirmed</span>
+        ) : (
+          <button
+            onClick={() => handleUpdate(_id)}
+            className="btn btn-sm btn-xs"
+          >
+            by Now
+          </button>
+        )}
       </th>
     </tr>
   );

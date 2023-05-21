@@ -83,6 +83,7 @@ const handleUpdate = id =>{
                   <th>Date</th>
                   <th>Ratting</th>
                   <th>Price</th>
+                  <th>Update</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
