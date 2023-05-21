@@ -62,6 +62,14 @@ const handleUpdate = id =>{
     })
 }
 
+const handleView = id =>{
+    fetch(`http://localhost:5000/allToys/${id}`)
+    .then(res=> res.json())
+    .then(data =>{
+        console.log(data)
+    })
+}
+
   console.log(toys);
   return (
     <div>
@@ -74,9 +82,7 @@ const handleUpdate = id =>{
               <thead>
                 <tr>
                   <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
+                    
                   </th>
                   <th>Image</th>
                   <th>Name</th>
@@ -84,6 +90,8 @@ const handleUpdate = id =>{
                   <th>Ratting</th>
                   <th>Price</th>
                   <th>Update</th>
+                  <th>Delete</th>
+                  <th>View</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
@@ -91,7 +99,7 @@ const handleUpdate = id =>{
               <tbody>
                 {toys?.map((toy) => (
                   <ToyList key={toy._id} toy={toy} handleDelete={handleDelete}
-                  handleUpdate={handleUpdate}></ToyList>
+                  handleUpdate={handleUpdate} handleView={handleView}></ToyList>
                 ))}
               </tbody>
             </table>

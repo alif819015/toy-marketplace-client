@@ -11,6 +11,8 @@ import AllToys from "../Pages/Shared/AllToys/AllToys";
 import UpdateToy from "../Pages/Shared/UpdateToy";
 import CategoryCard from "../Home/ShopCategory/CategoryCard";
 import Error from "../Pages/Error";
+import PrivateRoute from "./PrivateRoute";
+import MyToysView from "../Pages/Shared/MytoysView";
 
 const router = createBrowserRouter([
   {
@@ -40,11 +42,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addToy",
-        element: <AddToy></AddToy>,
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myToys",
-        element: <MyToy></MyToy>,
+        element: (
+          <PrivateRoute>
+            <MyToy></MyToy>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allToys",
@@ -56,6 +66,13 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allToys/${params.id}`),
       },
+      {
+        path: "/myView/:id",
+        element: <MyToysView></MyToysView>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allToys/${params.id}`),
+      },
+
       {
         path: "/error",
         element: <Error></Error>,
