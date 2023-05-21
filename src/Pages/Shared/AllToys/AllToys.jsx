@@ -22,14 +22,6 @@ const AllToys = () => {
         setToyes(data);
       });
   };
-  // useEffect(()=>{
-  //   fetch('https://assignment-11-toy-marketplace-server-alif819015.vercel.app/toySearchByName/ironman')
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // },[])
-
   return (
     <div className="m-8">
       <h3 className="text-center text-3xl font-bold my-5">All Toys</h3>
