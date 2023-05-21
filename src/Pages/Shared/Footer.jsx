@@ -20,10 +20,10 @@ const Footer = () => {
         </div>
         <div>
           <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover">Avengers</a>
+          <a className="link link-hover">Transformers</a>
+          <a className="link link-hover">Sarvel</a>
+          <a className="link link-hover">Star wars</a>
         </div>
         <div>
           <span className="footer-title">Legal</span>
@@ -50,13 +50,13 @@ const Footer = () => {
             <div className="mt-6">
               <span className="footer-title">Social</span>
               <div className="mt-5 flex gap-4">
-                <a>
+                <a href="https://twitter.com/">
                   <FaTwitter className="text-blue-600 w-8 h-8"></FaTwitter>
                 </a>
-                <a>
+                <a href="https://www.facebook.com/">
                   <FaFacebook className="text-blue-600 w-8 h-8"></FaFacebook>
                 </a>
-                <a>
+                <a href="https://www.youtube.com/">
                   <FaYoutube className="text-red-600 w-8 h-8"></FaYoutube>
                 </a>
               </div>

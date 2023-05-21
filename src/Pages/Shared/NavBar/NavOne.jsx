@@ -25,12 +25,7 @@ const NavOne = () => {
         </a>
       </div>
       <div className="flex-1 justify-between gap-2">
-        <div className="form-control text-black">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered"
-          />
+        <div>
         </div>
         <div className="flex items-center gap-3">
           <div>

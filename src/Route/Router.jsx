@@ -9,11 +9,11 @@ import AddToy from "../Pages/AddToy/AddToy";
 import MyToy from "../Pages/Shared/MyToy";
 import AllToys from "../Pages/Shared/AllToys/AllToys";
 import UpdateToy from "../Pages/Shared/UpdateToy";
-import CategoryCard from "../Home/ShopCategory/CategoryCard";
 import Error from "../Pages/Error";
 import PrivateRoute from "./PrivateRoute";
 import MyToysView from "../Pages/Shared/MytoysView";
 import AllToysView from "../Pages/Shared/AllToys/AllToysView";
+import CategoryView from "../Home/ShopCategory/CategoryView";
 
 const router = createBrowserRouter([
   {
@@ -79,30 +79,18 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${params.id}`),
       },
+      {
+        path: "/categoryView/:id",
+        element: <CategoryView></CategoryView>
+      },
 
       {
         path: "/error",
         element: <Error></Error>,
       },
-
-      // {
-      //     path: '/category/:id',
-      //     element: <CategoryCard></CategoryCard>,
-      //     loader: ({params})=>fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/all-categories/${params.id}`)
-      // },
-    ],
+    ]
   },
-  // {
-  //   path: "/",
-  //   element: <Home></Home>,
-  //   errorElement: <Error></Error>,
-  //   children: [
-  //     {
-  //       path: "/error",
-  //       element: <Error></Error>,
-  //     },
-  //   ],
-  // },
+
 ]);
 
 export default router;
