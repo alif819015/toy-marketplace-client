@@ -2,12 +2,14 @@ import img1 from "../../public/New folder/img2.jpg";
 import img2 from "../../public/New folder/img4.jpg";
 import img3 from "../../public/New folder/img5.jpg";
 import img4 from "../../public/New folder/img8.jpg";
+import useTitle from "../hooks/UseTitle";
 import Gallery from "./Gallery/Gallery";
 import ShopCategory from "./ShopCategory/ShopCategory";
 // import banner from "../../public/banner";
 
 
 const Home = () => {
+  useTitle('Home')
   return (
     <div>
       <div

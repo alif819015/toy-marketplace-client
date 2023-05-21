@@ -1,4 +1,6 @@
 import { useLoaderData } from "react-router-dom";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const MyToysView = () => {
   const toys = useLoaderData();
@@ -37,7 +39,10 @@ const MyToysView = () => {
           <span className="font-bold">Price:</span> ${price}
         </p>
         <p>
+          <div className="flex gap-3">
           <span className="font-bold">Ratting:</span> {retting}
+          <Rating style={{ maxWidth: 120 }} value={retting} readOnly />
+          </div>
         </p>
         <p>
           <span className="font-bold">Quantity:</span> {quantity}

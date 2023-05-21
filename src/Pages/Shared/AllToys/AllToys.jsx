@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import AllToysCard from "./AllToysCard";
+import useTitle from "../../../hooks/UseTitle";
 
 const AllToys = () => {
+  useTitle('All-Toys')
   const [toyes, setToyes] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allToys")
+    fetch("https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         setToyes(data);
@@ -14,14 +16,14 @@ const AllToys = () => {
   }, []);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/toySearchByName/${searchText}`)
+    fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/toySearchByName/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setToyes(data);
       });
   };
   // useEffect(()=>{
-  //   fetch('http://localhost:5000/toySearchByName/ironman')
+  //   fetch('https://assignment-11-toy-marketplace-server-alif819015.vercel.app/toySearchByName/ironman')
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log(data);

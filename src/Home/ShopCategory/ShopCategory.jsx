@@ -7,7 +7,7 @@ const ShopCategory = () => {
   const [categories, setCategories] = useState([]);
   const {_id} = categories;
   useEffect(() => {
-    fetch("http://localhost:5000/all-categories")
+    fetch("https://assignment-11-toy-marketplace-server-alif819015.vercel.app/all-categories")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);
@@ -27,7 +27,7 @@ const ShopCategory = () => {
             <Tab><button className="btn btn-outline">Marvel</button></Tab>
           </TabList>
 
-          <TabPanel className='flex gap-4'>
+          <TabPanel className='md:flex gap-4'>
             {
                 categories?.map(toy => <CategoryCard key={toy._id} toy={toy}></CategoryCard>)
             }

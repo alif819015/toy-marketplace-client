@@ -13,6 +13,7 @@ import CategoryCard from "../Home/ShopCategory/CategoryCard";
 import Error from "../Pages/Error";
 import PrivateRoute from "./PrivateRoute";
 import MyToysView from "../Pages/Shared/MytoysView";
+import AllToysView from "../Pages/Shared/AllToys/AllToysView";
 
 const router = createBrowserRouter([
   {
@@ -64,13 +65,19 @@ const router = createBrowserRouter([
         path: "/updated/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allToys/${params.id}`),
+          fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${params.id}`),
       },
       {
         path: "/myView/:id",
         element: <MyToysView></MyToysView>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allToys/${params.id}`),
+          fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${params.id}`),
+      },
+      {
+        path: "/allView/:id",
+        element: <AllToysView></AllToysView>,
+        loader: ({ params }) =>
+          fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${params.id}`),
       },
 
       {
@@ -81,7 +88,7 @@ const router = createBrowserRouter([
       // {
       //     path: '/category/:id',
       //     element: <CategoryCard></CategoryCard>,
-      //     loader: ({params})=>fetch(`http://localhost:5000/all-categories/${params.id}`)
+      //     loader: ({params})=>fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/all-categories/${params.id}`)
       // },
     ],
   },

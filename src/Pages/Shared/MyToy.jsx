@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import ToyList from "./ToyList";
 import { AuthContext } from "../../Auth/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 
 const MyToy = () => {
+    useTitle('My-Toys')
     const {user} = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
-  const url = `http://localhost:5000/toy-mail?email=${user?.email}`;
+  const url = `https://assignment-11-toy-marketplace-server-alif819015.vercel.app/toy-mail?email=${user?.email}`;
   useEffect(()=>{
     fetch(url)
     .then(res =>res.json())
@@ -16,7 +18,7 @@ const MyToy = () => {
   
 
 //   useEffect(() => {
-//     fetch("http://localhost:5000/allToys")
+//     fetch("https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys")
 //       .then((res) => res.json())
 //       .then((data) => {
 //         setToys(data);
@@ -25,7 +27,7 @@ const MyToy = () => {
   const handleDelete = id =>{
     const proceed = confirm('Are you sure you wont to delete');
     if(proceed){
-        fetch(`http://localhost:5000/allToys/${id}`, {
+        fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${id}`, {
             method: 'DELETE',
             headers:{"content-type":"application/json"},
             body: JSON.stringify()
@@ -43,7 +45,7 @@ const MyToy = () => {
 }
 
 const handleUpdate = id =>{
-    fetch(`http://localhost:5000/allToys/${id}`, {
+    fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${id}`, {
     method: "PATCH",
     headers: {"content-type":"application/json"},
     body: JSON.stringify({status: 'confirm'})
@@ -63,7 +65,7 @@ const handleUpdate = id =>{
 }
 
 const handleView = id =>{
-    fetch(`http://localhost:5000/allToys/${id}`)
+    fetch(`https://assignment-11-toy-marketplace-server-alif819015.vercel.app/allToys/${id}`)
     .then(res=> res.json())
     .then(data =>{
         console.log(data)

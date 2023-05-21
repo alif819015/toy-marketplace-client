@@ -3,8 +3,10 @@ import Swal from 'sweetalert2'
 import "./AddToy.css";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 
 const AddToy = () => {
+  useTitle('Add-Toys')
   const {user} = useContext(AuthContext);
   const {
     register,
@@ -12,7 +14,7 @@ const AddToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/postToys", {
+    fetch("https://assignment-11-toy-marketplace-server-alif819015.vercel.app/postToys", {
       method: "POST",
       headers: {"content-type": "application/json"},
       body: JSON.stringify(data),
